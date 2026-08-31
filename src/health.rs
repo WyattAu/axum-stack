@@ -1,7 +1,7 @@
 //! Health check routes for Axum, extending `healthkit`.
 
-use axum::routing::get;
 use axum::Router;
+use axum::routing::get;
 use healthkit::HealthRegistry;
 
 /// Create health check routes.
@@ -36,12 +36,10 @@ async fn liveness() -> axum::Json<serde_json::Value> {
 async fn readiness(
     registry: HealthRegistry,
 ) -> Result<axum::Json<serde_json::Value>, axum::http::StatusCode> {
-    let (status, _results) = registry.check_readiness().await.unwrap_or_else(|_| {
-        (
-            healthkit::HealthStatus::Unhealthy,
-            Vec::new(),
-        )
-    });
+    let (status, _results) = registry
+        .check_readiness()
+        .await
+        .unwrap_or_else(|_| (healthkit::HealthStatus::Unhealthy, Vec::new()));
 
     if status.is_healthy() || status.is_ready() {
         Ok(axum::Json(serde_json::json!({ "status": "ready" })))

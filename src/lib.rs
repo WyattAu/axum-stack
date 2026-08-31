@@ -11,9 +11,9 @@
 //! - [`server`] — One-line server builder
 
 pub mod cors;
-pub mod request_id;
 pub mod health;
 pub mod middleware;
+pub mod request_id;
 pub mod server;
 
 pub use graceful_shutdown::shutdown_signal;

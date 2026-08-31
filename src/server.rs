@@ -11,7 +11,7 @@ use crate::health;
 /// # Example
 ///
 /// ```ignore
-/// use axum_server::server;
+/// use axum_stack::server;
 ///
 /// let app = axum::Router::new()
 ///     .route("/api/hello", get(|| async { "world" }));

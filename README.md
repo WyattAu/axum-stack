@@ -1,4 +1,4 @@
-# axum-server
+# axum-stack
 
 Axum server utilities — shutdown, CORS, request ID, health routes, middleware stack.
 
@@ -14,7 +14,7 @@ Axum server utilities — shutdown, CORS, request ID, health routes, middleware 
 
 ```rust
 use axum::Router;
-use axum_server::server;
+use axum_stack::server;
 
 let app = Router::new()
     .route("/api/hello", get(|| async { "world" }));

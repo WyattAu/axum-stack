@@ -1,11 +1,11 @@
 [package]
-name = "axum-server"
+name = "axum-stack"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.85"
 description = "Axum server utilities — shutdown, CORS, request ID, health routes, middleware stack"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/WyattAu/axum-server"
+repository = "https://github.com/WyattAu/axum-stack"
 
 [dependencies]
 axum = "0.8"
