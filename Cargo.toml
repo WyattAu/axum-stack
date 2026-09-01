@@ -6,6 +6,8 @@ rust-version = "1.85"
 description = "Axum server utilities — shutdown, CORS, request ID, health routes, middleware stack"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/axum-stack"
+keywords = ["axum", "cors", "health"]
+categories = ["web-programming"]
 
 [dependencies]
 axum = "0.8"
