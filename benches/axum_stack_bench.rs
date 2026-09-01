@@ -1,6 +1,6 @@
-use criterion::{criterion_group, criterion_main, Criterion};
 use axum_stack::cors;
 use axum_stack::request_id;
+use criterion::{Criterion, criterion_group, criterion_main};
 
 fn bench_cors_permissive(c: &mut Criterion) {
     c.bench_function("cors_permissive", |b| {

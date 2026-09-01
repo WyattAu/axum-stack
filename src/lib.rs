@@ -16,4 +16,4 @@ pub mod middleware;
 pub mod request_id;
 pub mod server;
 
-pub use graceful_shutdown::shutdown_signal;
+pub use shutdown_kit::shutdown_signal;
