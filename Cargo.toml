@@ -18,8 +18,8 @@ uuid = { version = "1", features = ["v4"] }
 tracing = "0.1"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-healthkit = { version = "0.1.0", path = "../healthkit" }
-shutdown-kit = { version = "0.1.0", path = "../graceful" }
+healthkit = { git = "https://github.com/WyattAu/healthkit.git" }
+shutdown-kit = { git = "https://github.com/WyattAu/graceful.git" }
 thiserror = "2"
 
 [dev-dependencies]
