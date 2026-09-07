@@ -26,6 +26,7 @@ pub fn cors_permissive() -> CorsLayer {
         .allow_origin(Any)
         .allow_methods(Any)
         .allow_headers(Any)
+        .max_age(std::time::Duration::from_secs(3600))
 }
 
 /// Create a restrictive CORS layer with explicit origins.
@@ -63,7 +64,8 @@ pub fn cors_restrictive(origins: &[&str], credentials: bool) -> CorsLayer {
             credentialed_headers()
         } else {
             Any.into()
-        });
+        })
+        .max_age(std::time::Duration::from_secs(3600));
 
     if credentials {
         layer = layer.allow_credentials(true);
