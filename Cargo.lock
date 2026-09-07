@@ -107,7 +107,7 @@ dependencies = [
 
 [[package]]
 name = "axum-stack"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "axum",
  "criterion",
@@ -565,8 +565,8 @@ checksum = "ed5909b6e89a2db4456e54cd5f673791d7eca6732202bbf2a9cc504fe2f9b84a"
 
 [[package]]
 name = "healthkit"
-version = "0.1.0"
-source = "git+https://github.com/WyattAu/healthkit.git#69ffa99f208609a4f8800678afc1a27e76c4983f"
+version = "1.0.1"
+source = "git+https://github.com/WyattAu/healthkit?tag=v1.0.1#92b84dc6b8098689bdd65b0901832a1a69fce2f4"
 dependencies = [
  "axum",
  "serde",
