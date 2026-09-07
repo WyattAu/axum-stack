@@ -1,6 +1,22 @@
 //! CORS layer presets for Axum.
 
-use tower_http::cors::{Any, CorsLayer};
+use tower_http::cors::{AllowHeaders, Any, CorsLayer};
+
+/// Headers allowed on credentialed requests. The CORS spec (and tower-http's
+/// validator) forbids `Access-Control-Allow-Headers: *` combined with
+/// `Access-Control-Allow-Credentials: true`, so credentialed layers must
+/// enumerate headers explicitly.
+fn credentialed_headers() -> AllowHeaders {
+    [
+        http::header::AUTHORIZATION,
+        http::header::CONTENT_TYPE,
+        http::header::ACCEPT,
+        http::header::ORIGIN,
+        http::header::HeaderName::from_static("x-requested-with"),
+        http::header::HeaderName::from_static("x-csrf-token"),
+    ]
+    .into()
+}
 
 /// Create a permissive CORS layer (allows all origins, methods, headers).
 ///
@@ -42,7 +58,12 @@ pub fn cors_restrictive(origins: &[&str], credentials: bool) -> CorsLayer {
             http::Method::PATCH,
             http::Method::OPTIONS,
         ])
-        .allow_headers(Any);
+        .allow_headers(if credentials {
+            // `*` + credentials is an illegal CORS combination — enumerate.
+            credentialed_headers()
+        } else {
+            Any.into()
+        });
 
     if credentials {
         layer = layer.allow_credentials(true);
