@@ -34,6 +34,10 @@ pub fn cors_permissive() -> CorsLayer {
 /// # Arguments
 /// * `origins` — Allowed origins (e.g., `["https://app.example.com"]`)
 /// * `credentials` — Whether to allow credentials (cookies, auth headers)
+// Justified: invalid origin strings are a caller programming error; this
+// builder is infallible by contract, so panicking with a clear message is
+// preferable to silently dropping origins.
+#[allow(clippy::expect_used)]
 pub fn cors_restrictive(origins: &[&str], credentials: bool) -> CorsLayer {
     let mut layer = CorsLayer::new();
 
