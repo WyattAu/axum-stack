@@ -36,3 +36,7 @@ unsafe_code = "forbid"
 [[bench]]
 name = "axum_stack_bench"
 harness = false
+
+[lints.clippy]
+unwrap_used = "warn"
+expect_used = "warn"
