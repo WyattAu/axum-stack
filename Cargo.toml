@@ -8,6 +8,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/axum-stack"
 keywords = ["axum", "cors", "health"]
 categories = ["web-programming"]
+exclude = ["/target"]
 
 [dependencies]
 axum = "0.8"
@@ -20,8 +21,8 @@ uuid = { version = "1", features = ["v4"] }
 tracing = "0.1"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-healthkit = { git = "https://github.com/WyattAu/healthkit", tag = "v1.0.1" }
-shutdown-kit = { git = "https://github.com/WyattAu/graceful.git" }
+healthkit = "1.0.1"
+shutdown-kit = "0.2"
 thiserror = "2"
 
 [dev-dependencies]
