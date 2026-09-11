@@ -115,16 +115,13 @@ dependencies = [
  "http",
  "proptest",
  "reqwest",
- "serde",
  "serde_json",
  "shutdown-kit",
  "thiserror",
  "tokio",
  "tower",
  "tower-http",
- "tower-layer",
  "tracing",
- "uuid",
 ]
 
 [[package]]

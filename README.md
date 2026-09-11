@@ -1,5 +1,9 @@
 # axum-stack
 
+[![docs.rs](https://docs.rs/axum-stack/badge.svg)](https://docs.rs/axum-stack)
+[![crates.io](https://img.shields.io/crates/v/axum-stack.svg)](https://crates.io/crates/axum-stack)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
+
 Axum server utilities — shutdown, CORS, request ID, health routes, middleware stack.
 
 ## Features
