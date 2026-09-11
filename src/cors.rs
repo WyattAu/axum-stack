@@ -29,6 +29,11 @@ pub fn cors_permissive() -> CorsLayer {
         .max_age(std::time::Duration::from_secs(3600))
 }
 
+/// Response headers exposed to browser JS on cross-origin requests.
+fn exposed_headers() -> [http::HeaderName; 1] {
+    [http::HeaderName::from_static("x-request-id")]
+}
+
 /// Create a restrictive CORS layer with explicit origins.
 ///
 /// # Arguments
@@ -75,7 +80,7 @@ pub fn cors_restrictive(origins: &[&str], credentials: bool) -> CorsLayer {
         layer = layer.allow_credentials(true);
     }
 
-    layer
+    layer.expose_headers(exposed_headers())
 }
 
 /// Create a CORS layer for API-only access (no credentials, specific origins).
