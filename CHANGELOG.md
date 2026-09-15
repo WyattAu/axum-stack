@@ -1,5 +1,30 @@
 # Changelog
 
+All notable changes are documented here. Format: [Keep a
+Changelog](https://keepachangelog.com/) — versions follow [semver](https://semver.org).
+
+## [0.2.0] - 2026-09-15
+
+### Changed (breaking — 0.x minor bump)
+
+- **`cors_restrictive` / `cors_api` are fallible** (`Result<CorsLayer,
+  CorsError>`): malformed origins return `CorsError::InvalidOrigin`
+  instead of panicking on caller input.
+- **An empty origin list is now `CorsError::NoOrigins`** — the old
+  silently-allow-all behavior on empty slices was a secure-by-default
+  violation in a function named "restrictive".
+- **`default_middleware_stack` no longer includes a permissive CORS
+  layer.** Cross-origin access is opt-in via
+  `middleware_stack_with_cors(layer)`; there is no allow-all default to
+  forget about.
+
+### Added
+
+- `CorsError` typed error (`InvalidOrigin`, `NoOrigins`).
+- `middleware_stack_with_cors(CorsLayer)` for explicit CORS layering.
+
+# Changelog
+
 All notable changes to this project are documented here. Format: [Keep a
 Changelog](https://keepachangelog.com/) — versions follow [semver](https://semver.org).
 

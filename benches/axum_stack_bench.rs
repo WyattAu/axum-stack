@@ -1,3 +1,4 @@
+#![allow(clippy::unwrap_used, clippy::expect_used, unused_must_use)]
 use axum_stack::cors;
 use axum_stack::request_id;
 use criterion::{Criterion, criterion_group, criterion_main};
@@ -14,7 +15,8 @@ fn bench_cors_permissive(c: &mut Criterion) {
 fn bench_cors_restrictive_single_origin(c: &mut Criterion) {
     c.bench_function("cors_restrictive_single_origin", |b| {
         b.iter(|| {
-            let layer = cors::cors_restrictive(&["https://app.example.com"], true);
+            let layer =
+                cors::cors_restrictive(&["https://app.example.com"], true).expect("valid origin");
             let _ = std::hint::black_box(layer);
         });
     });
