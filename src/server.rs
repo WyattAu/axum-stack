@@ -50,3 +50,51 @@ pub enum ServerError {
     #[error("server error: {0}")]
     Serve(String),
 }
+
+#[cfg(test)]
+mod tests {
+    #![allow(clippy::unwrap_used, clippy::expect_used)]
+    use super::*;
+    use crate::middleware;
+    use axum::body::Body;
+    use axum::routing::get;
+    use http::Request;
+    use tower::ServiceExt;
+
+    #[tokio::test]
+    async fn with_health_serves_liveness() {
+        let app = with_health(
+            Router::new()
+                .route("/", get(|| async { "ok" }))
+                .layer(middleware::default_middleware_stack()),
+            healthkit::HealthRegistry::new(),
+        );
+
+        let res = app
+            .oneshot(Request::get("/health/live").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+
+        assert_eq!(res.status(), http::StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn serve_reports_bind_failure() {
+        let taken = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = taken.local_addr().unwrap().to_string();
+
+        let err = serve(Router::new(), &addr).await.unwrap_err();
+
+        assert!(matches!(err, ServerError::Bind(_)));
+    }
+
+    #[tokio::test]
+    async fn bind_error_message_is_descriptive() {
+        let taken = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = taken.local_addr().unwrap().to_string();
+
+        let err = serve(Router::new(), &addr).await.unwrap_err();
+
+        assert!(err.to_string().contains("failed to bind"));
+    }
+}
