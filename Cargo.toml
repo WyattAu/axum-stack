@@ -23,7 +23,7 @@ shutdown-kit = "0.2"
 thiserror = "2"
 
 [dev-dependencies]
-reqwest = { version = "0.12", features = ["json"] }
+reqwest = { version = "0.13", features = ["json"] }
 proptest = "1"
 criterion = { version = "0.5", features = ["html_reports"] }
 
