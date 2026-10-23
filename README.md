@@ -4,15 +4,15 @@
 [![crates.io](https://img.shields.io/crates/v/axum-stack.svg)](https://crates.io/crates/axum-stack)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
 
-Axum server utilities — shutdown, CORS, request ID, health routes, middleware stack.
+Axum server utilities: shutdown, CORS, request ID, health routes, middleware stack.
 
 ## Features
 
-- **Shutdown** — Graceful shutdown on SIGINT/SIGTERM via `graceful-shutdown`
-- **CORS** — Permissive, restrictive, and API-only presets
-- **Request ID** — UUID-based `X-Request-Id` generation and propagation
-- **Health** — Liveness, readiness, and detailed health routes via `healthkit`
-- **Middleware** — Pre-built stack (CORS, compression, timeout, request ID)
+- **Shutdown**: Graceful shutdown on SIGINT/SIGTERM via `graceful-shutdown`
+- **CORS**: Permissive, restrictive, and API-only presets
+- **Request ID**: UUID-based `X-Request-Id` generation and propagation
+- **Health**: Liveness, readiness, and detailed health routes via `healthkit`
+- **Middleware**: Pre-built stack (CORS, compression, timeout, request ID)
 
 ## Usage
 

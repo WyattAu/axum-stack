@@ -1,9 +1,9 @@
-# Requirements — axum-stack
+# Requirements: axum-stack
 
 Numbered, testable requirements. Every requirement maps to at least one named
 test or doc-comment contract; security-relevant items cite THREAT-MODEL.md rows.
 
-Scope: Opinionated Axum stack — CORS, request IDs, health endpoints, server bootstrap in one layer
+Scope: Opinionated Axum stack: CORS, request IDs, health endpoints, server bootstrap in one layer
 
 ## Functional
 
