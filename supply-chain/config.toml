@@ -675,6 +675,10 @@ criteria = "safe-to-run"
 version = "1.53.1"
 criteria = "safe-to-deploy"
 
+[[exemptions.tokio]]
+version = "1.54.1"
+criteria = "safe-to-deploy"
+
 [[exemptions.tokio-macros]]
 version = "2.7.2"
 criteria = "safe-to-deploy"
@@ -817,6 +821,10 @@ criteria = "safe-to-deploy"
 
 [[exemptions.windows-sys]]
 version = "0.52.0"
+criteria = "safe-to-deploy"
+
+[[exemptions.windows-sys]]
+version = "0.52.0"
 criteria = "safe-to-run"
 
 [[exemptions.windows-sys]]
@@ -825,7 +833,15 @@ criteria = "safe-to-deploy"
 
 [[exemptions.windows-targets]]
 version = "0.52.6"
+criteria = "safe-to-deploy"
+
+[[exemptions.windows-targets]]
+version = "0.52.6"
 criteria = "safe-to-run"
+
+[[exemptions.windows_aarch64_gnullvm]]
+version = "0.52.6"
+criteria = "safe-to-deploy"
 
 [[exemptions.windows_aarch64_gnullvm]]
 version = "0.52.6"
@@ -833,7 +849,15 @@ criteria = "safe-to-run"
 
 [[exemptions.windows_aarch64_msvc]]
 version = "0.52.6"
+criteria = "safe-to-deploy"
+
+[[exemptions.windows_aarch64_msvc]]
+version = "0.52.6"
 criteria = "safe-to-run"
+
+[[exemptions.windows_i686_gnu]]
+version = "0.52.6"
+criteria = "safe-to-deploy"
 
 [[exemptions.windows_i686_gnu]]
 version = "0.52.6"
@@ -841,7 +865,15 @@ criteria = "safe-to-run"
 
 [[exemptions.windows_i686_gnullvm]]
 version = "0.52.6"
+criteria = "safe-to-deploy"
+
+[[exemptions.windows_i686_gnullvm]]
+version = "0.52.6"
 criteria = "safe-to-run"
+
+[[exemptions.windows_i686_msvc]]
+version = "0.52.6"
+criteria = "safe-to-deploy"
 
 [[exemptions.windows_i686_msvc]]
 version = "0.52.6"
@@ -849,11 +881,23 @@ criteria = "safe-to-run"
 
 [[exemptions.windows_x86_64_gnu]]
 version = "0.52.6"
+criteria = "safe-to-deploy"
+
+[[exemptions.windows_x86_64_gnu]]
+version = "0.52.6"
 criteria = "safe-to-run"
 
 [[exemptions.windows_x86_64_gnullvm]]
 version = "0.52.6"
+criteria = "safe-to-deploy"
+
+[[exemptions.windows_x86_64_gnullvm]]
+version = "0.52.6"
 criteria = "safe-to-run"
+
+[[exemptions.windows_x86_64_msvc]]
+version = "0.52.6"
+criteria = "safe-to-deploy"
 
 [[exemptions.windows_x86_64_msvc]]
 version = "0.52.6"
