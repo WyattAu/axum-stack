@@ -3,6 +3,23 @@
 All notable changes are documented here. Format: [Keep a
 Changelog](https://keepachangelog.com/): versions follow [semver](https://semver.org).
 
+## [1.0.0] - 2026-10-26
+
+### Declared stable
+
+First 1.0. `axum-stack` wires production axum services; this release commits the shutdown, CORS, request-ID, and health-route surfaces as API-stable.
+
+### Guarantees from here on
+
+- Breaking changes to public items require a minor bump plus a `#[deprecated]`
+  window of at least one minor release.
+- MSRV bumps are minor releases, not patch releases.
+- `#![deny(missing_docs)]` and `#![forbid(unsafe_code)]` are enforced.
+
+### Explicitly not guaranteed
+
+- New middleware may arrive in minors behind features; existing middleware behaviour will not change.
+
 ## [0.2.0] - 2026-09-15
 
 ### Changed (breaking: 0.x minor bump)

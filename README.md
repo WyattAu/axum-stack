@@ -26,6 +26,13 @@ let app = Router::new()
 server::serve(app, "0.0.0.0:3000").await.unwrap();
 ```
 
+## Stability
+
+`axum-stack` is 1.0. Breaking changes require a minor bump and a `#[deprecated]`
+window of at least one minor release; MSRV bumps are minor releases, never
+patch releases. `missing_docs` is denied and `unsafe` is forbidden. See the
+changelog for the short list of explicitly non-contractual behaviours.
+
 ## License
 
 MIT OR Apache-2.0
